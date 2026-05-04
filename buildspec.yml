@@ -10,18 +10,15 @@ phases:
 
   pre_build:
     commands:
-      - echo Logging build info...
+      - echo Configuring EKS access...
+      - aws eks update-kubeconfig --region ap-south-1 --name brain-cluster
 
   build:
     commands:
-      - echo Deploying to Kubernetes...
+      - echo Deploying app...
       - kubectl apply -f deployment.yaml
       - kubectl apply -f service.yaml
 
   post_build:
     commands:
-      - echo Build completed successfully
-
-artifacts:
-  files:
-    - '**/*'
+      - echo Deployment completed
