@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 DevOps Practice Project – Dist Directory
 
 This repository contains the production-ready build files (dist folder) for DevOps practice and deployment exercises.
@@ -89,3 +90,7 @@ No dependencies are required
 No build process is required
 
 No package.json is needed
+=======
+# brain-tasks-devops
+DevOps Practice Project – Dist Directory  This repository contains the production-ready build files (dist folder) for DevOps practice and deployment exercises.  It is intentionally structured to help learners focus on CI/CD pipelines, hosting, containerization, and infrastructure setup rather than application development. 
+>>>>>>> c8d662413697e0f8f09832082a38f3d4c7eb7895
