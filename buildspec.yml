@@ -7,12 +7,13 @@ phases:
       - curl -LO "https://dl.k8s.io/release/v1.32.0/bin/linux/amd64/kubectl"
       - chmod +x kubectl
       - mv kubectl /usr/local/bin/
-pre_build:
 
-  commands:
-    - echo Configuring EKS access...
-    - aws sts get-caller-identity
-    - aws eks update-kubeconfig --region ap-south-1 --name brain-cluster
+  pre_build:
+    commands:
+      - echo Configuring EKS access...
+      - aws sts get-caller-identity
+      - aws eks update-kubeconfig --region ap-south-1 --name brain-cluster
+
   build:
     commands:
       - echo Deploying app...
