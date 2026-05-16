@@ -10,12 +10,18 @@ phases:
 
   pre_build:
     commands:
+      - echo Logging into Docker Hub...
+      - docker login -u 12345anand -p Apple@123
       - echo Configuring EKS access...
       - aws sts get-caller-identity
       - aws eks update-kubeconfig --region ap-south-1 --name brain-cluster
 
   build:
     commands:
+      - echo Building Docker image...
+      - docker build -t brain-app .
+      - docker tag brain-app 12345anand/brain-app:latest
+      - docker push 12345anand/brain-app:latest
       - echo Deploying app...
       - kubectl apply -f deployment.yaml
       - kubectl apply -f service.yaml
